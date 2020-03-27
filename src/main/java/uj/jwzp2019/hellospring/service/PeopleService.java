@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import uj.jwzp2019.hellospring.model.Person;
+import uj.jwzp2019.hellospring.model.Planet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,10 @@ public class PeopleService {
     }
 
     public Person getPersonById(int id) {
-        return restTemplate.getForEntity(starWarsApiUrl+"/people/"+id, Person.class).getBody();
+        Person person=restTemplate.getForEntity(starWarsApiUrl+"/people/"+id, Person.class).getBody();
+        Planet planet=restTemplate.getForEntity(person.getHomeworld(), Planet.class).getBody();
+        person.setPlanet(planet);
+        return person;
     }
 
     public List<Person> getPeopleInRangeWithEyeColor(int fromId, int toId, String color) {
