@@ -28,12 +28,15 @@ public class PeopleService {
     }
 
     public List<Person> getPeopleInRangeWithEyeColor(int fromId, int toId, String color) {
-        List<Person> people=new ArrayList<>();
-        for(int id=fromId; id<=toId; id++){
-            Person person=getPersonById(id);
-            if(person.getEye_color().equals(color))
-                people.add(person);
+        if(fromId<toId) throw new IllegalArgumentException();
+        else{
+            List<Person> people=new ArrayList<>();
+            for(int id=fromId; id<=toId; id++){
+                Person person=getPersonById(id);
+                if(person.getEye_color().equals(color))
+                    people.add(person);
+            }
+            return people;
         }
-        return people;
     }
 }

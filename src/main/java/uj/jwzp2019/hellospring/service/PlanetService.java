@@ -23,7 +23,7 @@ public class PlanetService {
     }
 
     public Planet getPlanetById(int id) {
-        return restTemplate.getForEntity(starWarsApiUrl+"/planet/"+id, Planet.class).getBody();
+        return restTemplate.getForEntity(starWarsApiUrl+"/planets/"+id, Planet.class).getBody();
     }
 
     public Planet getPlanetByUrl(String url) {
@@ -31,12 +31,15 @@ public class PlanetService {
     }
 
     public Planet getSmallestPlanetInRange(int fromId, int toId) {
-        Planet minPlanet=getPlanetById(fromId);
-        for(int id=fromId+1; id<=toId; id++){
-            Planet planet=getPlanetById(id);
-            if(planet.getDiameter()<minPlanet.getDiameter())
-                minPlanet=planet;
+        if(fromId>toId) throw new IllegalArgumentException();
+        else{
+            Planet minPlanet=getPlanetById(fromId);
+            for(int id=fromId+1; id<=toId; id++){
+                Planet planet=getPlanetById(id);
+                if(planet.getDiameter()<minPlanet.getDiameter())
+                    minPlanet=planet;
+            }
+            return minPlanet;
         }
-        return minPlanet;
     }
 }
