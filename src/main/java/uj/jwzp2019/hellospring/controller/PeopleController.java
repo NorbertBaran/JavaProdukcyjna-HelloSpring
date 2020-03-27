@@ -21,14 +21,14 @@ public class PeopleController {
 
     @RequestMapping("/person")
     public Person getPersonById(@RequestParam(value="id", defaultValue="1") int id) {
-        return null;
+        return peopleService.getPersonById(id);
     }
 
     @RequestMapping("/person/eye")
     public List<Person> getPeopleInRangeWithMatchingColor(@RequestParam(value="fromId", defaultValue="1") int fromId,
                                                           @RequestParam(value="toId", defaultValue="3") int toId,
                                                           @RequestParam(value="color", defaultValue="brown") String color) {
-        return null;
+        return peopleService.getPeopleInRangeWithEyeColor(fromId, toId, color);
     }
 
 

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import uj.jwzp2019.hellospring.model.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,10 +24,16 @@ public class PeopleService {
     }
 
     public Person getPersonById(int id) {
-        return null;
+        return restTemplate.getForEntity(starWarsApiUrl+"/people/"+id, Person.class).getBody();
     }
 
     public List<Person> getPeopleInRangeWithEyeColor(int fromId, int toId, String color) {
-        return null;
+        List<Person> people=new ArrayList<>();
+        for(int id=fromId; id<=toId; id++){
+            Person person=getPersonById(id);
+            if(person.getEye_color().equals(color))
+                people.add(person);
+        }
+        return people;
     }
 }

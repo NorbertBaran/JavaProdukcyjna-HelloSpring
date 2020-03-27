@@ -19,13 +19,13 @@ public class PlanetController {
 
     @RequestMapping("/planet")
     public Planet getPlanetById(@RequestParam(value="id", defaultValue="1") int id) {
-        return null;
+        return planetService.getPlanetById(id);
     }
 
     @RequestMapping("/planet/smallest")
     public Planet getSmallestPlanetInRange(@RequestParam(value="fromId", defaultValue="1") int fromId,
                                            @RequestParam(value="toId", defaultValue="3") int toId) {
-        return null;
+        return planetService.getSmallestPlanetInRange(fromId, toId);
     }
 
 }
