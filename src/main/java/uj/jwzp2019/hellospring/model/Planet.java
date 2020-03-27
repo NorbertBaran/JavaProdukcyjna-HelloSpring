@@ -22,8 +22,11 @@ public class Planet {
         return diameter;
     }
 
-    public void setDiameter(long diameter) {
-        this.diameter = diameter;
+    public void setDiameter(String diameter) {
+        if(diameter.equals("unknown"))
+            this.diameter=0;
+        else
+            this.diameter = Long.parseLong(diameter);
     }
 
     public String getClimate() {
@@ -46,8 +49,11 @@ public class Planet {
         return population;
     }
 
-    public void setPopulation(long population) {
-        this.population = population;
+    public void setPopulation(String population) {
+        if(population.equals("unknown"))
+            this.population=0;
+        else
+            this.population = Long.parseLong(population);
     }
 
     @Override

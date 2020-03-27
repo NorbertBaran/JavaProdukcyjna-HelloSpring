@@ -27,16 +27,22 @@ public class Person {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setHeight(String height) {
+        if(height.equals("unknown"))
+            this.height=0;
+        else
+            this.height = Integer.parseInt(height);
     }
 
     public int getMass() {
         return mass;
     }
 
-    public void setMass(int mass) {
-        this.mass = mass;
+    public void setMass(String mass) {
+        if(mass.equals("unknown"))
+            this.mass=0;
+        else
+            this.mass = Integer.parseInt(mass);
     }
 
     public String getHair_color() {
