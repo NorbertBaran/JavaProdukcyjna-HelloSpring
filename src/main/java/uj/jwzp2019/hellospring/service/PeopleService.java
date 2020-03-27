@@ -32,7 +32,7 @@ public class PeopleService {
     }
 
     public List<Person> getPeopleInRangeWithEyeColor(int fromId, int toId, String color) {
-        if(fromId<toId) throw new IllegalArgumentException();
+        if(fromId>toId) throw new IllegalArgumentException();
         else{
             List<Person> people=new ArrayList<>();
             for(int id=fromId; id<=toId; id++){
