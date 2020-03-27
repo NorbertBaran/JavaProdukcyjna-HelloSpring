@@ -23,7 +23,7 @@ public class PlanetService {
     }
 
     public Planet getPlanetById(int id) {
-        return restTemplate.getForEntity(starWarsApiUrl+"/planets/"+id, Planet.class).getBody();
+        return restTemplate.getForEntity(starWarsApiUrl+"/planet/"+id, Planet.class).getBody();
     }
 
     public Planet getPlanetByUrl(String url) {
