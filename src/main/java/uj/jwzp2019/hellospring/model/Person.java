@@ -1,6 +1,7 @@
 package uj.jwzp2019.hellospring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
@@ -31,6 +32,7 @@ public class Person {
         this.height=height;
     }
 
+    @JsonProperty("height")
     public void setHeight(String height) {
         if(height.equals("unknown"))
             this.height=0;
@@ -46,6 +48,7 @@ public class Person {
         this.mass=mass;
     }
 
+    @JsonProperty("mass")
     public void setMass(String mass) {
         if(mass.equals("unknown"))
             this.mass=0;

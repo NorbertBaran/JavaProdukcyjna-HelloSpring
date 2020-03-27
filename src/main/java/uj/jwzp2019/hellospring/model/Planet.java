@@ -1,6 +1,7 @@
 package uj.jwzp2019.hellospring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Planet {
@@ -26,6 +27,7 @@ public class Planet {
         this.diameter=diameter;
     }
 
+    @JsonProperty("diameter")
     public void setDiameter(String diameter) {
         if(diameter.equals("unknown"))
             this.diameter=0;
@@ -57,6 +59,7 @@ public class Planet {
         this.population=population;
     }
 
+    @JsonProperty("population")
     public void setPopulation(String population) {
         if(population.equals("unknown"))
             this.population=0;
