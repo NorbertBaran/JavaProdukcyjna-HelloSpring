@@ -22,6 +22,10 @@ public class Planet {
         return diameter;
     }
 
+    public void setDiameter(long diameter){
+        this.diameter=diameter;
+    }
+
     public void setDiameter(String diameter) {
         if(diameter.equals("unknown"))
             this.diameter=0;
@@ -47,6 +51,10 @@ public class Planet {
 
     public long getPopulation() {
         return population;
+    }
+
+    public void setPopulation(long population){
+        this.population=population;
     }
 
     public void setPopulation(String population) {

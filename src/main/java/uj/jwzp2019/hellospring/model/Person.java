@@ -27,6 +27,10 @@ public class Person {
         return height;
     }
 
+    public void setHeight(int height){
+        this.height=height;
+    }
+
     public void setHeight(String height) {
         if(height.equals("unknown"))
             this.height=0;
@@ -36,6 +40,10 @@ public class Person {
 
     public int getMass() {
         return mass;
+    }
+
+    public void setMass(int mass){
+        this.mass=mass;
     }
 
     public void setMass(String mass) {
